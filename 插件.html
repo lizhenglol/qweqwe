@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 200px;
+				height: 200px;
+				background-color: black;
+				position: absolute;
+				left: 200px;
+				top: 100px;
+				color: white;
+				line-height: 200px;
+				text-align: center;
+			}
+			#box1{
+				width: 300px;
+				height: 500px;
+				position: absolute;
+				left: 700px;
+				background-color: burlywood;
+				font-size: 70px;
+				text-align: center;
+				line-height: 250px;
+				display: none;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="box">
+			点我
+		</div>
+		<div id="box1">
+			你是不是傻啊
+		</div>
+		<script type="text/javascript">
+			$.fn.extend({
+
+				arr: function() {
+					var i = 0
+					
+					this.click(function() {
+                         $(this).stop(true);
+						i++
+						if(i == 1) { $(this).text("再点"); } else if(i == 2) {
+							$(this).text("再点一下试试")
+						} else if(i == 3) {
+							$(this).text("你还真点")
+						} else if(i == 4) {
+							$(this).text("别再点了好吗")
+						} else if(i == 5) {
+							$(this).text("就不能听话点")
+						} else if(i == 6) {
+							$(this).text("再点我就消失给你看")
+						} else if(i == 7) {
+							$(this).hide()
+							$("#box1").show()
+						}
+
+						$(this).animate({
+								height: '+=10',
+								width: '+=30',
+								left: '+=10',
+								top: '+=10',
+								"font-size": 30,
+							}, 1000)
+
+							.css({
+								'background-color': "red",
+								"color": "black"
+							})
+
+					})
+
+				}
+			
+
+			})
+
+		
+			$("#box").arr()
+	
+		</script>
+	</body>
+
+</html>
